@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I wonder what this could be 💖</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffebf0;
+            color: #d63384;
+        }
+        .container {
+            margin-top: 100px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            font-size: 18px;
+            padding: 10px;
+            border: 2px solid #d63384;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff66b2;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #e60073;
+        }
+        #message {
+            margin-top: 15px;
+            color: red;
+        }
+        #final-link {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>I wonder what this could be !!</h1>
+        <p id="question">The day we went to see The Script?</p>
+        <input type="text" id="answer" placeholder="Enter the date">
+        <button onclick="checkAnswer()">Submit</button>
+        <p id="message"></p>
+        <div id="final-link">
+            <h2>You're amazing! 💖</h2>
+            <a href="https://valentines-alpha-three.vercel.app" target="_blank">Click here for your surprise! 💘</a>
+        </div>
+    </div>
+
+    <script>
+        let step = 0;
+        const questions = [
+            { question: "The day we went to see The Script? as a 4 digit number", answer: "2311" },
+            { question: "The day we went to Winter Wonderland?", answer: "1612" },
+            { question: "The day I asked you to be my girlfriend?", answer: "3007" }
+        ];
+
+        function checkAnswer() {
+            let input = document.getElementById("answer").value.trim();
+            let message = document.getElementById("message");
+
+            if (input === questions[step].answer) {
+                step++;
+                message.innerText = "";
+                if (step < questions.length) {
+                    document.getElementById("question").innerText = questions[step].question;
+                    document.getElementById("answer").value = "";
+                } else {
+                    document.querySelector(".container").innerHTML = document.getElementById("final-link").innerHTML;
+                }
+            } else {
+                message.innerText = "Try again xx <3";
+            }
+        }
+    </script>
+</body>
+</html>
