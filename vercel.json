@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/questions.html",
+      "permanent": true
+    }
+  ]
+}
